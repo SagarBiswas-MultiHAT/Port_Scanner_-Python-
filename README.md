@@ -1,6 +1,6 @@
 # Port Scanner (Python)
 
-![](https://imgur.com/LX7MfC8)
+![](https://imgur.com/LX7MfC8.png)
 
 ## Description
 This project is a Python-based port scanner designed for educational purposes. It allows users to scan open TCP ports on a target machine. The tool can be used via a command-line interface or a web-based GUI built with Flask.
