@@ -1,0 +1,4 @@
+Scan results for 192.168.1.1
+Port range: 1-1000
+Open ports: 53, 80, 443
+Duration: 10.177215 seconds

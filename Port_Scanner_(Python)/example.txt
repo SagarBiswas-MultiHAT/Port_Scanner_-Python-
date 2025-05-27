@@ -1,0 +1,17 @@
+# Example Target IP Inputs for Port Scanner
+
+# Localhost (useful for testing on your own machine)
+127.0.0.1
+
+# Private Network IPs (useful for testing within a local network)
+192.168.1.1
+192.168.0.100
+10.0.0.1
+
+# Public IPs (use with caution and ensure you have permission to scan)
+8.8.8.8  # Google Public DNS
+1.1.1.1  # Cloudflare Public DNS
+
+# Invalid IPs (to test error handling)
+256.256.256.256
+abc.def.ghi.jkl

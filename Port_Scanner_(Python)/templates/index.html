@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Port Scanner</title>
+    <script>
+        async function scanPorts() {
+            const ip = document.getElementById('ip').value;
+            const portRange = document.getElementById('port_range').value || '1-1000';
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<br>Scanning...';
+
+            const response = await fetch('/scan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ ip, port_range: portRange })
+            });
+
+            const data = await response.json();
+            if (data.error) {
+                resultDiv.innerHTML = `Error: ${data.error}`;
+            } else {
+                resultDiv.innerHTML = `<br><br>..:: Open ports: ${data.open_ports.join(', ')}<br><br>..:: Duration: ${data.duration} seconds<br><br>..:: Log file: ${data.log_file}`;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Port Scanner</h1>
+    <label for="ip">Target IP:</label>
+    <input type="text" id="ip" placeholder="Enter target IP">
+    <label for="port_range">Port Range:</label>
+    <input type="text" id="port_range" placeholder="e.g., 1-1000">
+    <button onclick="scanPorts()">Scan</button>
+    <div id="result"></div>
+</body>
+
+</html>
